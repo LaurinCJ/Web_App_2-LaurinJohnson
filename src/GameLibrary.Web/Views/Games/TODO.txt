@@ -1,0 +1,1 @@
+Create your Games MVC .cshtml views here. No assignment UI is implemented in this starter.

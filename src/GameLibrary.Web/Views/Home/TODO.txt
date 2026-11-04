@@ -1,0 +1,1 @@
+Create your Home MVC .cshtml views here. No assignment UI is implemented in this starter.

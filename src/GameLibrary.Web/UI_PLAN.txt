@@ -1,0 +1,18 @@
+Suggested MVC organization (you write these parts)
+
+Home: Index view with links to Games, Franchises, Platforms, Settings, Admin.
+Shared/_Layout.cshtml: common navigation, including a link back home.
+Games: list, search by Title and Notes, details, create, edit, delete confirmation.
+Franchises: list, details, create, edit, delete confirmation.
+Platforms: list and details accessible normally; put create/edit/delete in Admin.
+Administration: manage platform records here only; no login is required.
+Settings: a user setting such as theme saved in a cookie, then applied by layout.
+
+Inject the relevant repository interface into each controller constructor.
+Populate franchise/platform selection lists from their repositories.
+Keep form-specific view models in ViewModels instead of a large controller file.
+Add _ViewImports.cshtml for your namespaces and MVC tag helpers.
+Add _ViewStart.cshtml and _Layout.cshtml once you build shared navigation.
+Use GET for forms and POST for mutations, including delete confirmation.
+Validate forms, handle foreign-key conflicts, and protect form POSTs against CSRF.
+If you choose a different table for admin-only changes, adjust this plan.
