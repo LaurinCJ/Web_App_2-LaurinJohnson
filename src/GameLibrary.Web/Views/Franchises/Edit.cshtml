@@ -1,0 +1,13 @@
+@model GameLibrary.Web.ViewModels.FranchiseFormViewModel
+@{ ViewData["Title"] = "Edit franchise"; }
+<h1>Edit franchise</h1>
+<form asp-action="Edit" method="post" class="record-form" asp-route-id="@Model.Id">
+    <input asp-for="Id" type="hidden" />
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <div><label asp-for="Name"></label><input asp-for="Name" />
+        <span asp-validation-for="Name" class="validation"></span></div>
+    <div><label asp-for="Developer"></label><input asp-for="Developer" />
+        <span asp-validation-for="Developer" class="validation"></span></div>
+    <button type="submit">Save changes</button>
+    <a asp-action="Index">Cancel</a>
+</form>

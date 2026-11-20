@@ -1,0 +1,11 @@
+@model GameLibrary.Data.Models.Platform
+@{ ViewData["Title"] = "Platform details"; }
+<h1>Platform details</h1>
+<dl>
+    <dt>Name</dt><dd>@Model.Name</dd>
+    <dt>Manufacturer</dt><dd>@Model.Manufacturer</dd>
+</dl>
+<p class="actions">
+    <a asp-action="Index">Back to platforms</a>
+    <a asp-controller="Administration" asp-action="Index">Manage platforms</a>
+</p>

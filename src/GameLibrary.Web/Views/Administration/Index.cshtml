@@ -1,0 +1,30 @@
+@model IReadOnlyList<GameLibrary.Data.Models.Platform>
+@{ ViewData["Title"] = "Administration"; }
+<h1>Administration</h1>
+<h2>Manage platforms</h2>
+<p>Add and maintain the platform records available when editing games.</p>
+<p><a asp-action="Create">Add a platform</a></p>
+@if (Model.Count == 0)
+{
+    <p>No platforms are available.</p>
+}
+else
+{
+    <div class="table-container">
+    <table>
+        <thead><tr><th scope="col">Name</th><th scope="col">Manufacturer</th>
+            <th scope="col">Actions</th></tr></thead>
+        <tbody>
+        @foreach (var platform in Model)
+        {
+            <tr><td>@platform.Name</td><td>@platform.Manufacturer</td>
+                <td class="actions">
+                    <a asp-controller="Platforms" asp-action="Details" asp-route-id="@platform.Id">Details</a>
+                    <a asp-action="Edit" asp-route-id="@platform.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@platform.Id">Delete</a>
+                </td></tr>
+        }
+        </tbody>
+    </table>
+    </div>
+}
