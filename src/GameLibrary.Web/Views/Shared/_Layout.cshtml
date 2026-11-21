@@ -1,0 +1,36 @@
+@{
+    // Use the same allowlist as the settings controller. A missing or altered
+    // cookie falls back to light instead of becoming an arbitrary CSS class.
+    string theme = Context.Request.Cookies["GameLibrary.Theme"] == "dark"
+        ? "dark" : "light";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Game Library</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="@theme">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" asp-controller="Home" asp-action="Index">Game Library</a>
+            <nav aria-label="Main navigation">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-controller="Games" asp-action="Index">Games</a>
+                <a asp-controller="Franchises" asp-action="Index">Franchises</a>
+                <a asp-controller="Platforms" asp-action="Index">Platforms</a>
+                <a asp-controller="Administration" asp-action="Index">Administration</a>
+                <a asp-controller="Settings" asp-action="Index">Settings</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" class="page-content">
+        @* The selected view appears here; navigation stays shared. *@
+        @RenderBody()
+    </main>
+    <footer class="site-footer">Your games, franchises, and platforms.</footer>
+</body>
+</html>

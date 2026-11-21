@@ -1,1 +1,0 @@
-Add your view models here, separately from controllers and data models.

@@ -1,0 +1,28 @@
+@model IReadOnlyList<GameLibrary.Data.Models.Franchise>
+@{ ViewData["Title"] = "Franchises"; }
+<h1>Franchises</h1>
+<p><a asp-action="Create">Add a franchise</a></p>
+@if (Model.Count == 0)
+{
+    <p>No franchises are available.</p>
+}
+else
+{
+    <div class="table-container">
+    <table>
+        <thead><tr><th scope="col">Name</th><th scope="col">Developer</th>
+            <th scope="col">Actions</th></tr></thead>
+        <tbody>
+        @foreach (var franchise in Model)
+        {
+            <tr><td>@franchise.Name</td><td>@franchise.Developer</td>
+                <td class="actions">
+                    <a asp-action="Details" asp-route-id="@franchise.Id">Details</a>
+                    <a asp-action="Edit" asp-route-id="@franchise.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@franchise.Id">Delete</a>
+                </td></tr>
+        }
+        </tbody>
+    </table>
+    </div>
+}

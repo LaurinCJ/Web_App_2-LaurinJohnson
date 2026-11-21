@@ -1,0 +1,12 @@
+@model GameLibrary.Data.Models.Game
+@{ ViewData["Title"] = "Game details"; }
+<h1>Game details</h1>
+<dl>
+    <dt>Title</dt><dd>@Model.Title</dd>
+    <dt>Release year</dt><dd>@Model.ReleaseYear</dd>
+    <dt>Notes</dt><dd>@Model.Notes</dd>
+    <dt>Franchise ID</dt><dd>@Model.FranchiseId</dd>
+    <dt>Platform ID</dt><dd>@Model.PlatformId</dd>
+</dl>
+<p class="actions"><a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a asp-action="Index">Back to games</a></p>

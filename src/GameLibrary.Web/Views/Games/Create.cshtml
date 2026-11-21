@@ -1,0 +1,22 @@
+@model GameLibrary.Web.ViewModels.GameFormViewModel
+@{ ViewData["Title"] = "Add a game"; }
+<h1>Add a game</h1>
+<form asp-action="Create" method="post" class="record-form">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <div><label asp-for="Title"></label><input asp-for="Title" />
+        <span asp-validation-for="Title" class="validation"></span></div>
+    <div><label asp-for="Notes"></label><textarea asp-for="Notes" rows="4"></textarea>
+        <span asp-validation-for="Notes" class="validation"></span></div>
+    <div><label asp-for="ReleaseYear"></label><input asp-for="ReleaseYear" type="number" />
+        <span asp-validation-for="ReleaseYear" class="validation"></span></div>
+    <div><label asp-for="FranchiseId"></label>
+        <select asp-for="FranchiseId" asp-items="Model.FranchiseChoices">
+            <option value="">Choose a franchise</option>
+        </select><span asp-validation-for="FranchiseId" class="validation"></span></div>
+    <div><label asp-for="PlatformId"></label>
+        <select asp-for="PlatformId" asp-items="Model.PlatformChoices">
+            <option value="">Choose a platform</option>
+        </select><span asp-validation-for="PlatformId" class="validation"></span></div>
+    <button type="submit">Save</button>
+    <a asp-action="Index">Cancel</a>
+</form>

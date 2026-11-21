@@ -1,0 +1,16 @@
+@model GameLibrary.Web.ViewModels.SettingsViewModel
+@{ ViewData["Title"] = "Settings"; }
+<h1>Settings</h1>
+<p>Choose the appearance you prefer. Your selection is remembered in this browser.</p>
+<form asp-action="Index" method="post" class="record-form">
+    <div asp-validation-summary="All" class="validation"></div>
+    <div>
+        <label asp-for="Theme">Theme</label>
+        <select asp-for="Theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
+    <button type="submit">Save settings</button>
+    <a asp-controller="Home" asp-action="Index">Back to home</a>
+</form>
